@@ -61,8 +61,10 @@ class Image(models.Model):
     location = models.ForeignKey(Location, related_name='location', on_delete=models.DO_NOTHING, null=True, blank=True)
     category = models.ForeignKey(Category, related_name='category', on_delete=models.DO_NOTHING, null=True, blank=True)
 
+
     class Meta:
         ordering=["pub_date"]
+    
 
     def save_image(self):
         self.save()
@@ -73,6 +75,11 @@ class Image(models.Model):
     @classmethod
     def update_image(cls,id,value):
         cls.objects.filter(id=id).update(image=value)
+
+    @classmethod
+    def retrieve_images(cls):
+        images=cls.objects.all()
+        return images
     
     @classmethod
     def get_image_by_id(cls):

@@ -6,6 +6,10 @@ def index(request):
     '''
     Function that displays all the photos
     '''
-    gallery=Image.objects.all()
+    images= Image. retrieve_images()
+    ctx={
+        "images":images
+    }
     location=Location.get_locations()
-    return render(request,'index.html', {'gallery':gallery},{'locations':location})
+    return render(request,'index.html', ctx,{'locations':location})
+

@@ -7,3 +7,5 @@ class ImageTestClass(TestCase):
        
         self.new_image= Image(name = 'me',description = 'This is a random post')
         self.new_image.save()
+
+

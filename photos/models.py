@@ -3,7 +3,10 @@ from django.db import models
 # Create your models here.
 
 class Category(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique='True')
+
+    class Meta:
+        ordering = ["name"]
 
     def save_category(self):
         self.save()
@@ -11,13 +14,25 @@ class Category(models.Model):
     def delete_category(self):
         self.delete()
 
+    def update_category(self, update):
+        self.name = update
+        self.save()
+
+    @classmethod
+    def get_category_id(cls,id):
+        category = Category.objects.get(pk = id)
+        return category
+
     def __str__(self):
         return self.name
 
 
 
 class Location(models.Model):
-    name = models.CharField(max_length=60)
+    name = models.CharField(max_length=60,unique=True)
+
+    class Meta:
+        ordering = ["name"]
 
     @classmethod
     def get_locations(cls):
@@ -43,8 +58,8 @@ class Image(models.Model):
     description=models.TextField()
     pub_date=models.DateTimeField(auto_now_add=True)
     image=models.ImageField(upload_to='Images/')
-    category = models.ForeignKey(Category)
-    location = models.ForeignKey(Location)
+    location = models.ForeignKey(Location, related_name='location', on_delete=models.DO_NOTHING)
+    category = models.ForeignKey(Category, related_name='category', on_delete=models.DO_NOTHING)
 
     class Meta:
         ordering=["pub_date"]
@@ -57,7 +72,7 @@ class Image(models.Model):
     
     @classmethod
     def update_image(cls,id,value):
-        cls.objetcs.filter(id=id).update(image=value)
+        cls.objects.filter(id=id).update(image=value)
     
     @classmethod
     def get_image_by_id(cls):

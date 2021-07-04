@@ -7,22 +7,7 @@
 body{
     background-image: url('/static/Images/HOMEPAGE.jpg');
 }
-h1{
-    color: black;
-    position: relative;
-    top: 300px;
-    left: 200px;
-    font-weight: 700;
-}
 
-button{
-    position: relative;
-    top: 300px;
-    left: 350px;
-    width: 100px;
-    font-size: 50px;
-    background-color: crimson;
-}
-button:hover{
-    background-color: darkgreen;
+nav{
+    background-color: black;
 }

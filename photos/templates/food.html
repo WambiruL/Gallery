@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<br>
+<br>
+<div class="album">
+    <div class="container">
+        <h2>FOOD</h2>
+        <div class="row">
+        {% for image in food %}
+        <div class="col-md-7">
+            {%if image.image.url%}
+            <a class="img-overlay" data-toggle="modal" data-target="#{{image.id}}" style="width:100%"></a>
+            <img src="{{image.image.url}}" class="image-responsive" alt="Image" >  
+            {%else%}
+            <img class="img-fluid rounded-start img-thumbnail" src="https://via.placeholder.com/150">
+            {%endif%}
+            <div class="text-center">
+                <h2>{{image.name}}</h2>
+            </div>
+            <hr>
+        </div>
+        {% empty %}
+        <h3>There are currently no images under this category</h3>
+        {% endfor %}
+      </div>
+
+{% endblock %}

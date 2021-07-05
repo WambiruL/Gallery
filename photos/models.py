@@ -27,7 +27,6 @@ class Category(models.Model):
         return self.name
 
 
-
 class Location(models.Model):
     name = models.CharField(max_length=60,unique=True)
 
@@ -57,7 +56,7 @@ class Image(models.Model):
     name=models.CharField(max_length=80)
     description=models.TextField()
     pub_date=models.DateTimeField(auto_now_add=True)
-    image=models.ImageField(upload_to='Images/')
+    image=models.ImageField(upload_to='media/')
     location = models.ForeignKey(Location, related_name='location', on_delete=models.DO_NOTHING, null=True, blank=True)
     category = models.ForeignKey(Category, related_name='category', on_delete=models.DO_NOTHING, null=True, blank=True)
 

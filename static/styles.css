@@ -1,13 +1,19 @@
-.container-fluid{
+.container{
     width: 1050px;
     height: 800px;
     
     
 }
 body{
-   background-color: tomato;
+    font-family: 'Butcherman', cursive;
+    background-color:darkseagreen;
 }
-
 nav{
     background-color: black;
 }
+
+.jumbotron{
+    background-color:cornflowerblue;
+    text-align: center;
+}
+

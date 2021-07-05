@@ -3,14 +3,17 @@
 {% block styles %}
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Butcherman&display=swap" rel="stylesheet">
   {% endblock %}
 
 <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand text-white" href="/"><h3><strong>GALLERIA</strong></h3></a>
+    <a class="navbar-brand text-white" href="/"><h3><strong>MY GALLERY</strong></h3></a>
 
 
     <!--categories-->
-    <p>
+    <p class="button" style="color: black;">
         <a href="{% url 'nature'%}" class="btn btn-success my-2">Nature</a>
         <a href="{% url 'fashion'%}" class="btn btn-warning my-2">Fashion</a>
         <a href="{% url 'food'%}" class="btn btn-secondary my-2">Food</a>
@@ -35,6 +38,9 @@
 
 
 {%block content%}
+<div class="jumbotron">
+    <h1>WELCOME TO MY GALLERY</h1>
+</div>
 <div class="container">
     <!-- Looping through images -->
     {% for image in images %}

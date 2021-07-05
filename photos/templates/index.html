@@ -7,7 +7,20 @@
 
 <nav class="navbar navbar-expand-lg">
     <a class="navbar-brand text-white" href="/"><h3><strong>GALLERIA</strong></h3></a>
+    
+    <!--search-->
+    <div class="col-sm-4 col-md-4 navbar-right">
+        <form class="navbar-form" role="search">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search Images" name="image">
+                <div class="input-group-btn">
+                    <button class="btn btn-info" type="submit" style="width: 50px; height: 20px;"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
 </nav>
+
 
 
 {%block content%}

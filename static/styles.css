@@ -41,4 +41,8 @@ h5{
     left: 70px;
     height: 200px;
 }
-
+.modal-content{
+    background-image: url('./images/modalback.png');
+    background-size: 400px;
+    font-size: 30px;
+}

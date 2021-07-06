@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Butcherman&display=swap" rel="stylesheet">
-  {% endblock %}
+{% endblock %}
 
 <nav class="navbar navbar-expand-lg">
     <a class="navbar-brand text-white" href="/"><h3><strong>MY GALLERY</strong></h3></a>
@@ -44,19 +44,22 @@
 <div class="container">
     <!-- Looping through images -->
     {% for image in images %}
-    <div class="row" id="gallery">
-        <!-- displaying images -->
-        <div class="col-md-7">
-            {%if image.image.url%}
-            <a class="img-overlay" data-toggle="modal" data-target="#{{image.id}}" style="width:100%"></a>
-            <img src="{{image.image.url}}" class="image-responsive" alt="Image" >  
-            {%else%}
-            <img class="img-fluid rounded-start img-thumbnail" src="https://via.placeholder.com/150">
-            {%endif%}
-            <div class="text-center">
-                <h2>{{image.name}}</h2>
-            </div>
-            <hr>
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm" style="width:20rem;height:23rem;">
+            <div class="card-header">{{image.name}}</div>
+                <div class="card-body">
+                    <img class="card-img-top"src = "{{ image.image.url }}" data-toggle="modal" data-target="#myModal{{image.id}}" style="height:150px;"/>
+
+                    <br>
+                    <p class="card-text">{{image.summary}}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#myModal{{image.id}}">View</button>
+                        </div>
+                        <small class="text-muted">Posted : {{image.pub_date|timesince}}</small>
+                    </div>
+                </div>
+            </div>    
         </div>
     {% empty %}
     </div>
@@ -65,6 +68,8 @@
     </div>
     {% endfor %}
 </div>
+
+
 
 
 

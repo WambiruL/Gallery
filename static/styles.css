@@ -1,19 +1,32 @@
 .container{
     width: 1050px;
     height: 800px;
-    
-    
+    display: flex;
+    justify-content: space-around;
 }
+
+.card{
+    padding: 20px;
+    margin: 3px;
+    background-color:#100e17;
+    color: ghostwhite;
+    height: 550px;
+    width: 400px;
+    border-radius: 50px;
+
+} 
+    
 body{
     font-family: 'Butcherman', cursive;
-    background-color:darkseagreen;
+    background-color:rosybrown;
 }
 nav{
     background-color: black;
 }
 
 .jumbotron{
-    background-color:cornflowerblue;
+    background-image: url('./images/jumbo.gif');
     text-align: center;
+    color: whitesmoke;
 }
 

@@ -40,6 +40,7 @@
     <h1>WELCOME TO MY GALLERY</h1>
 </div>
 <div class="container">
+    <div class="row">
     <!-- Looping through images -->
     {% for image in images %}
     <div class="col-md-4">
@@ -47,7 +48,7 @@
             <div class="card-header">{{image.name}}</div>
                 <div class="card-body">
                     {%if image.image.url%}
-                    <img class="card-img-top"src = "{{ image.image.url }}" data-toggle="modal" data-target="#myModal{{image.id}}" style="height:150px;"/>
+                    <img class="card-img-top"src = "{{ image.image.url }}" data-toggle="modal" data-target="#modal{{image.id}}" style="height:200px;"/>
 
                     {%else%}
                     <img class="img-fluid rounded-start img-thumbnail" src="https://via.placeholder.com/150">
@@ -89,6 +90,7 @@
         <div class="row">
             <h2>There are no images displayed</h2>
         </div>
+    </div>
     </div>
     {% endfor %}
 </div>

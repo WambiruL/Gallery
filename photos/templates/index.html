@@ -10,15 +10,15 @@
 
 <!--Navbar-->
 <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand text-white" href="/"><h3><strong>MY GALLERY</strong></h3></a>
+    <a class="navbar-brand text-white" href="#"><h3><strong>MY GALLERY</strong></h3></a>
 
     <!--categories-->
-    <p class="button" style="color: black;">
+    <p class="button" style="color: black;">\
+        <a href="{% url 'index'%}" class="btn btn-info my-2">All Photos</a>
         <a href="{% url 'nature'%}" class="btn btn-success my-2">Nature</a>
         <a href="{% url 'fashion'%}" class="btn btn-warning my-2">Fashion</a>
         <a href="{% url 'food'%}" class="btn btn-secondary my-2">Food</a>
         <a href="{% url 'animals'%}" class="btn btn-primary my-2">Animals</a>
-        <a href="{% url 'index'%}" class="btn btn-info my-2">All Photos</a>
       </p>
     
     <!--search-->

@@ -14,7 +14,7 @@
                 <div class="card-header">{{image.name}}</div>
                     <div class="card-body">
                         {%if image.image.url%}
-                        <img class="card-img-top"src = "{{ image.image.url }}" style="height:150px;"/>
+                        <img class="card-img-top"src = "{{ image.image.url }}" style="height:150px; width: 150px; position: relative; left: 30px;"/>
     
                         {%else%}
                         <img class="img-fluid rounded-start img-thumbnail" src="https://via.placeholder.com/150">

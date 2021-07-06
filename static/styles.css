@@ -13,12 +13,14 @@
     height: 550px;
     width: 400px;
     border-radius: 50px;
+    font-size: 20px;
 
 } 
     
 body{
-    font-family: 'Butcherman', cursive;
+    font-family: 'Sail', cursive;
     background-color:rosybrown;
+    font-weight: 800;
 }
 nav{
     background-color: black;

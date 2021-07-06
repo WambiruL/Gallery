@@ -21,12 +21,17 @@ def image(request,image_id):
 
 def search_results(request):
 
-    if 'image' in request.GET and request.GET["image"]:
-        search_term = request.GET.get("image")
+    if 'image_category' in request.GET and request.GET["image_category"]:
+        search_term = request.GET.get("image_category")
         searched_images = Image.search_image(search_term)
         message = f"{search_term}"
 
-    return render(request, 'search.html',{"message":message,"images": searched_images})
+        return render(request, 'search.html',{"message":message,"images": searched_images})
+
+    else:
+        message="You can have not searched for anything"
+
+        return render(request, 'search.html', {'message':message})
 
 def nature(request):
     nature_category = Category.objects.get(pk=2)

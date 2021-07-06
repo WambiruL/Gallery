@@ -4,20 +4,22 @@
 
   <div class="row">
     {% if images%}
-      <h2>Found {{ images|length }} of searched term {{message}}</h2>
+      <h2 style="color:cornsilk;" >Found {{ images|length }} of searched category {{message}}</h2><br>
     {% else %}
       <h2> Found 0 images for the search term {{message}}</h2>
     {% endif %}
 
   </div>
-
   <div class="row">
 
   {% if images %}
     {% for image in images %}
-      <div class="col-sm-6 col-md-3">
+    <div class="card" style="height: 350px;">
+      <div class="col-md-10">
           <h1>{{image.name}}</h1>
+          <img style="height: 200px;" src="{{image.image.url}}">
       </div>
+    </div>
     {% endfor %}
   {% endif %}
   </div>

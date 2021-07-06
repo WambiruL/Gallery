@@ -14,7 +14,7 @@ def index(request):
 
 def image(request,image_id):
     try:
-        image = Image.objects.get(id = image_id)
+        image = Image.objects.get(pk = image_id)
     except Image.DoesNotExist:
         raise Http404()
     return render(request,"single_image.html", {"image":image})

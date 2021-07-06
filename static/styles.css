@@ -30,3 +30,13 @@ nav{
     color: whitesmoke;
 }
 
+h5{
+    font-size: 50px;
+    color: rosybrown;
+}
+.img-fluid{
+    position: relative;
+    left: 70px;
+    height: 200px;
+}
+

@@ -48,18 +48,15 @@
             <div class="card-header">{{image.name}}</div>
                 <div class="card-body">
                     {%if image.image.url%}
-                    <img class="card-img-top"src = "{{ image.image.url }}" data-toggle="modal" data-target="#modal{{image.id}}" style="height:200px;"/>
+                    <img class="card-img-top"src = "{{ image.image.url }}" style="height:200px;"/>
 
                     {%else%}
                     <img class="img-fluid rounded-start img-thumbnail" src="https://via.placeholder.com/150">
                     {%endif%}
 
-                    <br>
-                    <p class="card-text">{{image.summary}}</p>
+                    <br><br>
                     <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#modal{{image.id}}">View</button>
-                        </div>
+                        <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#{{image.id}}">View</button>
                         <small class="text-muted">Posted : {{image.pub_date|timesince}}</small>
                     </div>
                 </div>
@@ -68,8 +65,8 @@
 
         <!--Image Modal-->
 
-        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
+        <div class="modal fade" id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="#{{image.name}}">{{image.name}}</h5>
@@ -94,5 +91,8 @@
     </div>
     {% endfor %}
 </div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
 {% endblock %}

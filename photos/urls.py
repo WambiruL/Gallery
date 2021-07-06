@@ -8,7 +8,7 @@ urlpatterns=[
     url(r'^fashion/$', views.fashion, name = 'fashion'),
     url(r'^food/$', views.food, name = 'food'),
     url(r'^animals/$', views.animals, name = 'animals'),
-   # url(r'^image/<int:1', views.imagedisplay.as_view(), name='index.html')
+    url(r'^single_image/<int:image_1', views.image, name='image')
 
 ]
 

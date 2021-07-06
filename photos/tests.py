@@ -67,3 +67,35 @@ class LocationTestClass(TestCase):
         location =Location.objects.all()
         self.assertTrue(len(location) == 0)
 
+class CategoryTestClass(TestCase):
+    def setUp(self):
+       
+        self.category= Category(name = 'Food')
+        self.category.save()
+    
+    def test_get_category_id(self):
+        category=Category.get_category_id(self.category.id)
+        self.assertTrue(len(category) == 1)
+
+    def test_update_category(self):
+        category = Category.get_category_id(self.category.id)
+        category.update_category('Food')
+        category = Category.get_category_id(self.category.id)
+        self.assertTrue(category.name =='Food')
+
+    def test_save_category(self):
+        self.category.save_category()
+        category=Category.objects.all()
+        self.assertTrue(len(category)>0)
+
+    def test_delete_category(self):
+        self.category.save_category()
+        self.category.delete_category()
+        category =Category.objects.all()
+        self.assertTrue(len(category) == 0)
+    
+
+
+
+
+

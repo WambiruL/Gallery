@@ -40,3 +40,30 @@ class ImageTestClass(TestCase):
         self.assertTrue(len(images)>0)
 
 
+class LocationTestClass(TestCase):
+    def setUp(self):
+       
+        self.loc= Location(name = 'Africa')
+        self.loc.save()
+
+    def test_get_locations(self):
+        location=Location.get_locations(self.loc.id)
+        self.assertTrue(len(location) == 1)
+
+    def test_update_location(self):
+        location = Location.get_locations(self.loc.id)
+        location.update_location('Africa')
+        location = Location.get_locations(self.loc.id)
+        self.assertTrue(location.name == 'Africa')
+
+    def test_save_location(self):
+        self.loc.save_location()
+        location=Location.objects.all()
+        self.assertTrue(len(location)>0)
+
+    def test_delete_location(self):
+        self.loc.save_location()
+        self.loc.delete_location()
+        location =Location.objects.all()
+        self.assertTrue(len(location) == 0)
+

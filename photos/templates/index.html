@@ -57,18 +57,40 @@
                     <p class="card-text">{{image.summary}}</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#myModal{{image.id}}">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#modal{{image.id}}">View</button>
                         </div>
                         <small class="text-muted">Posted : {{image.pub_date|timesince}}</small>
                     </div>
                 </div>
             </div>    
+        </div>   
+
+        <!--Image Modal-->
+
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="#{{image.name}}">{{image.name}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div>
+                        <img src = "{{ image.image.url }}" class="img-fluid" alt="{{image.name}}"/>
+                    </div>
+                    <div class="modal-body">{{image.description}}</div>
+                    <div class="modal-body">Category: {{image.category}}</div>
+                    <div class="modal-body">Location:{{image.location}}</div>
+                </div>
+             </div>
         </div>
         {% empty %}
         <div class="row">
             <h2>There are no images displayed</h2>
         </div>
-        {% endfor %}
     </div>
+    {% endfor %}
 </div>
+
 {% endblock %}

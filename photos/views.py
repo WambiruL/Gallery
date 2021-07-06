@@ -1,6 +1,7 @@
 from .models import Image, Location, Category
 from django.shortcuts import render
 from django.http import Http404
+from django.views.generic import DetailView
 
 # Create your views here.
 def index(request):
@@ -11,9 +12,9 @@ def index(request):
     location=Location.get_locations()
     return render(request,'index.html', {'images':images,'location':location})
 
-def image(request,article_id):
+def image(request,image_id):
     try:
-        image = Image.objects.get(id = article_id)
+        image = Image.objects.get(id = image_id)
     except Image.DoesNotExist:
         raise Http404()
     return render(request,"single_image.html", {"image":image})
@@ -38,12 +39,18 @@ def fashion(request):
     return render(request,'fashion.html', {'fashion':fashion})
 
 def food(request):
-    food_category = Category.objects.get(pk=2)
+    food_category = Category.objects.get(pk=3)
     food = Image.objects.filter(category=food_category)
     return render(request,'food.html', {'food':food})
 
 def animals(request):
-    animals_category = Category.objects.get(pk=2)
+    animals_category = Category.objects.get(pk=4)
     animals = Image.objects.filter(category=animals_category)
     return render(request,'animals.html', {'animals':animals})
+
+
+class imagedisplay(DetailView):
+   model = Image
+   template_name = 'index.html'
+   context_object_name = 'image'
 

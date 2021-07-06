@@ -8,9 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Butcherman&display=swap" rel="stylesheet">
 {% endblock %}
 
+<!--Navbar-->
 <nav class="navbar navbar-expand-lg">
     <a class="navbar-brand text-white" href="/"><h3><strong>MY GALLERY</strong></h3></a>
-
 
     <!--categories-->
     <p class="button" style="color: black;">
@@ -34,9 +34,7 @@
     </div>
 
 </nav>
-
-
-
+ <!--THE IMAGE CARDS-->
 {%block content%}
 <div class="jumbotron">
     <h1>WELCOME TO MY GALLERY</h1>
@@ -48,7 +46,12 @@
         <div class="card mb-4 shadow-sm" style="width:20rem;height:23rem;">
             <div class="card-header">{{image.name}}</div>
                 <div class="card-body">
+                    {%if image.image.url%}
                     <img class="card-img-top"src = "{{ image.image.url }}" data-toggle="modal" data-target="#myModal{{image.id}}" style="height:150px;"/>
+
+                    {%else%}
+                    <img class="img-fluid rounded-start img-thumbnail" src="https://via.placeholder.com/150">
+                    {%endif%}
 
                     <br>
                     <p class="card-text">{{image.summary}}</p>
@@ -61,16 +64,11 @@
                 </div>
             </div>    
         </div>
-    {% empty %}
+        {% empty %}
+        <div class="row">
+            <h2>There are no images displayed</h2>
+        </div>
+        {% endfor %}
     </div>
-    <div class="row">
-        <h2>There are no images displayed</h2>
-    </div>
-    {% endfor %}
 </div>
-
-
-
-
-
 {% endblock %}

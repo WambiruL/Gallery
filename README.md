@@ -1,5 +1,8 @@
 # GALLERIA
 
+## Description
+This is a photo gallery web application to showcase beautiful pictures. Users get can view photos uploaded by admin.They can also copy the link to a photo to paste at their discretion. They can also search for photos based on the categories.
+
 ## SetUp / Installation Requirements
 1.Open Terminal {Ctrl+Alt+T}
 
